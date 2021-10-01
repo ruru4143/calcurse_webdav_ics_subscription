@@ -14,7 +14,7 @@ grep -v "$id" "$calendar_file" >| "$calendar_file.tmp"
 mv "$calendar_file.tmp" "$calendar_file"
 
 # import entries
-wget "$ics_url" --output-document=$tmp_ics
-sed -E "s/SUMMARY([^\r]*)/SUMMARY\1 $id/g" -i $tmp_ics
-calcurse -i $tmp_ics
+wget "$ics_url" --output-document="$tmp_ics"
+sed -E "s/SUMMARY([^\r]*)/SUMMARY\1 $id/g" -i "$tmp_ics"
+calcurse -i "$tmp_ics"
 
